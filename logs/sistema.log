@@ -1,0 +1,510 @@
+2026-11-23 03:07:50 | INFO | Cliente registrado: 10987654 - Laura Gómez
+2026-11-23 03:07:50 | ERROR | Fallo en operación 2: Intentar registrar un cliente con correo inválido
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "/mnt/data/SoftwareFJ/main.py", line 51, in <lambda>
+    Cliente("Carlos Pérez", "12345678", "correo-invalido", "3109876543")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/clientes.py", line 19, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "/mnt/data/SoftwareFJ/clientes.py", line 51, in validar
+    raise ValidacionError("El correo electrónico no tiene un formato válido.")
+excepciones.ValidacionError: El correo electrónico no tiene un formato válido.
+2026-11-23 03:07:50 | INFO | Cliente registrado: 87654321 - Andrés Ruiz
+2026-11-23 03:07:50 | INFO | Servicio registrado: Sala de reuniones (DD099BEB)
+2026-11-23 03:07:50 | ERROR | Fallo en operación 5: Intentar crear un servicio con precio negativo
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "/mnt/data/SoftwareFJ/main.py", line 78, in <lambda>
+    AlquilerEquipo("Proyector", -20000, stock=3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicios.py", line 119, in __init__
+    super().__init__(nombre, precio_base, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicios.py", line 20, in __init__
+    Servicio.validar(self)
+    ~~~~~~~~~~~~~~~~^^^^^^
+  File "/mnt/data/SoftwareFJ/servicios.py", line 31, in validar
+    raise ValidacionError("El precio base debe ser mayor que cero.")
+excepciones.ValidacionError: El precio base debe ser mayor que cero.
+2026-11-23 03:07:50 | INFO | Servicio registrado: Computador portátil (C0889AE4)
+2026-11-23 03:07:50 | INFO | Servicio registrado: Asesoría de software (E485E477)
+2026-11-23 03:07:50 | INFO | Reserva creada: BA7463BC
+2026-11-23 03:07:50 | INFO | Reserva BA7463BC confirmada. Total: 119000.0
+2026-11-23 03:07:50 | INFO | Reserva BA7463BC procesada correctamente.
+2026-11-23 03:07:50 | INFO | Reserva creada: 4E20DDD3
+2026-11-23 03:07:50 | INFO | Reserva 4E20DDD3 confirmada. Total: 77112.0
+2026-11-23 03:07:50 | INFO | Servicio registrado: Consultoría temporal (7BB5E409)
+2026-11-23 03:07:50 | INFO | Reserva creada: C50E2DF6
+2026-11-23 03:07:50 | ERROR | Fallo en operación 12: Intentar confirmar una reserva de un servicio no disponible
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "/mnt/data/SoftwareFJ/main.py", line 145, in <lambda>
+    lambda: _crear_y_confirmar(
+            ~~~~~~~~~~~~~~~~~~^
+        sistema, cliente_1.id, servicio_no_disponible.id, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "/mnt/data/SoftwareFJ/main.py", line 186, in _crear_y_confirmar
+    total = reserva.confirmar(descuento=descuento)
+  File "/mnt/data/SoftwareFJ/reservas.py", line 44, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio '{self.servicio.nombre}' no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio 'Consultoría temporal' no está disponible.
+2026-11-23 03:07:50 | ERROR | Fallo en operación 13: Intentar reservar una sala para más personas de las permitidas
+Traceback (most recent call last):
+  File "/mnt/data/SoftwareFJ/main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "/mnt/data/SoftwareFJ/main.py", line 155, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        cliente_1.id, sala.id, 1, personas=30
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "/mnt/data/SoftwareFJ/sistema.py", line 62, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion, **parametros)
+  File "/mnt/data/SoftwareFJ/reservas.py", line 30, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "/mnt/data/SoftwareFJ/reservas.py", line 37, in validar
+    self.servicio.validar_parametros(self.duracion, **self.parametros)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/SoftwareFJ/servicios.py", line 103, in validar_parametros
+    raise ValidacionError(
+        f"La sala admite máximo {self.capacidad} personas; se solicitaron {personas}."
+    )
+excepciones.ValidacionError: La sala admite máximo 12 personas; se solicitaron 30.
+2026-11-23 03:07:50 | INFO | Reserva 4E20DDD3 cancelada.
+2026-11-23 03:07:50 | INFO | Finalizó la demostración de operaciones de Software FJ.
+2026-11-22 23:05:51 | INFO | Cliente registrado: 10987654 - Laura Gómez
+2026-11-22 23:05:51 | ERROR | Fallo en operación 2: Intentar registrar un cliente con correo inválido
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 51, in <lambda>
+    Cliente("Carlos Pérez", "12345678", "correo-invalido", "3109876543")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\clientes.py", line 19, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\clientes.py", line 51, in validar
+    raise ValidacionError("El correo electrónico no tiene un formato válido.")
+excepciones.ValidacionError: El correo electrónico no tiene un formato válido.
+2026-11-22 23:05:51 | INFO | Cliente registrado: 87654321 - Andrés Ruiz
+2026-11-22 23:05:51 | INFO | Servicio registrado: Sala de reuniones (662FF9EC)
+2026-11-22 23:05:51 | ERROR | Fallo en operación 5: Intentar crear un servicio con precio negativo
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 78, in <lambda>
+    AlquilerEquipo("Proyector", -20000, stock=3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 119, in __init__
+    super().__init__(nombre, precio_base, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 20, in __init__
+    Servicio.validar(self)
+    ~~~~~~~~~~~~~~~~^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 31, in validar
+    raise ValidacionError("El precio base debe ser mayor que cero.")
+excepciones.ValidacionError: El precio base debe ser mayor que cero.
+2026-11-22 23:05:51 | INFO | Servicio registrado: Computador portátil (3D9CE814)
+2026-11-22 23:05:51 | INFO | Servicio registrado: Asesoría de software (617D7634)
+2026-11-22 23:05:51 | INFO | Reserva creada: 780BF81C
+2026-11-22 23:05:51 | INFO | Reserva 780BF81C confirmada. Total: 119000.0
+2026-11-22 23:05:51 | INFO | Reserva 780BF81C procesada correctamente.
+2026-11-22 23:05:51 | INFO | Reserva creada: A7BB6AD9
+2026-11-22 23:05:51 | INFO | Reserva A7BB6AD9 confirmada. Total: 77112.0
+2026-11-22 23:05:51 | INFO | Servicio registrado: Consultoría temporal (630092E8)
+2026-11-22 23:05:51 | INFO | Reserva creada: 92C5E3A2
+2026-11-22 23:05:51 | ERROR | Fallo en operación 12: Intentar confirmar una reserva de un servicio no disponible
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 145, in <lambda>
+    lambda: _crear_y_confirmar(
+            ~~~~~~~~~~~~~~~~~~^
+        sistema, cliente_1.id, servicio_no_disponible.id, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 186, in _crear_y_confirmar
+    total = reserva.confirmar(descuento=descuento)
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 44, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio '{self.servicio.nombre}' no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio 'Consultoría temporal' no está disponible.
+2026-11-22 23:05:51 | ERROR | Fallo en operación 13: Intentar reservar una sala para más personas de las permitidas
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 155, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        cliente_1.id, sala.id, 1, personas=30
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\sistema.py", line 62, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion, **parametros)
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 30, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 37, in validar
+    self.servicio.validar_parametros(self.duracion, **self.parametros)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 103, in validar_parametros
+    raise ValidacionError(
+        f"La sala admite máximo {self.capacidad} personas; se solicitaron {personas}."
+    )
+excepciones.ValidacionError: La sala admite máximo 12 personas; se solicitaron 30.
+2026-11-22 23:05:51 | INFO | Reserva A7BB6AD9 cancelada.
+2026-11-22 23:05:51 | INFO | Finalizó la demostración de operaciones de Software FJ.
+2026-11-22 23:06:52 | INFO | Cliente registrado: 10987654 - Laura Gómez
+2026-11-22 23:06:52 | ERROR | Fallo en operación 2: Intentar registrar un cliente con correo inválido
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 51, in <lambda>
+    Cliente("Carlos Pérez", "12345678", "correo-invalido", "3109876543")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\clientes.py", line 19, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\clientes.py", line 51, in validar
+    raise ValidacionError("El correo electrónico no tiene un formato válido.")
+excepciones.ValidacionError: El correo electrónico no tiene un formato válido.
+2026-11-22 23:06:52 | INFO | Cliente registrado: 87654321 - Andrés Ruiz
+2026-11-22 23:06:52 | INFO | Servicio registrado: Sala de reuniones (A9393728)
+2026-11-22 23:06:52 | ERROR | Fallo en operación 5: Intentar crear un servicio con precio negativo
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 78, in <lambda>
+    AlquilerEquipo("Proyector", -20000, stock=3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 119, in __init__
+    super().__init__(nombre, precio_base, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 20, in __init__
+    Servicio.validar(self)
+    ~~~~~~~~~~~~~~~~^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 31, in validar
+    raise ValidacionError("El precio base debe ser mayor que cero.")
+excepciones.ValidacionError: El precio base debe ser mayor que cero.
+2026-11-22 23:06:52 | INFO | Servicio registrado: Computador portátil (E9C7B0CC)
+2026-11-22 23:06:52 | INFO | Servicio registrado: Asesoría de software (93AC5CD4)
+2026-11-22 23:06:52 | INFO | Reserva creada: 757944D7
+2026-11-22 23:06:52 | INFO | Reserva 757944D7 confirmada. Total: 119000.0
+2026-11-22 23:06:52 | INFO | Reserva 757944D7 procesada correctamente.
+2026-11-22 23:06:52 | INFO | Reserva creada: 546EC97C
+2026-11-22 23:06:52 | INFO | Reserva 546EC97C confirmada. Total: 77112.0
+2026-11-22 23:06:52 | INFO | Servicio registrado: Consultoría temporal (E0382473)
+2026-11-22 23:06:52 | INFO | Reserva creada: 02BB567D
+2026-11-22 23:06:52 | ERROR | Fallo en operación 12: Intentar confirmar una reserva de un servicio no disponible
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 145, in <lambda>
+    lambda: _crear_y_confirmar(
+            ~~~~~~~~~~~~~~~~~~^
+        sistema, cliente_1.id, servicio_no_disponible.id, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 186, in _crear_y_confirmar
+    total = reserva.confirmar(descuento=descuento)
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 44, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio '{self.servicio.nombre}' no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio 'Consultoría temporal' no está disponible.
+2026-11-22 23:06:52 | ERROR | Fallo en operación 13: Intentar reservar una sala para más personas de las permitidas
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 155, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        cliente_1.id, sala.id, 1, personas=30
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\sistema.py", line 62, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion, **parametros)
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 30, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 37, in validar
+    self.servicio.validar_parametros(self.duracion, **self.parametros)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 103, in validar_parametros
+    raise ValidacionError(
+        f"La sala admite máximo {self.capacidad} personas; se solicitaron {personas}."
+    )
+excepciones.ValidacionError: La sala admite máximo 12 personas; se solicitaron 30.
+2026-11-22 23:06:52 | INFO | Reserva 546EC97C cancelada.
+2026-11-22 23:06:52 | INFO | Finalizó la demostración de operaciones de Software FJ.
+2026-11-22 23:37:14 | INFO | Cliente registrado: 10987654 - Laura Gómez
+2026-11-22 23:37:14 | ERROR | Fallo en operación 2: Intentar registrar un cliente con correo inválido
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 51, in <lambda>
+    Cliente("Carlos Pérez", "12345678", "correo-invalido", "3109876543")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\clientes.py", line 19, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\clientes.py", line 51, in validar
+    raise ValidacionError("El correo electrónico no tiene un formato válido.")
+excepciones.ValidacionError: El correo electrónico no tiene un formato válido.
+2026-11-22 23:37:14 | INFO | Cliente registrado: 87654321 - Andrés Ruiz
+2026-11-22 23:37:14 | INFO | Servicio registrado: Sala de reuniones (624EBDF2)
+2026-11-22 23:37:14 | ERROR | Fallo en operación 5: Intentar crear un servicio con precio negativo
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 78, in <lambda>
+    AlquilerEquipo("Proyector", -20000, stock=3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 119, in __init__
+    super().__init__(nombre, precio_base, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 20, in __init__
+    Servicio.validar(self)
+    ~~~~~~~~~~~~~~~~^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 31, in validar
+    raise ValidacionError("El precio base debe ser mayor que cero.")
+excepciones.ValidacionError: El precio base debe ser mayor que cero.
+2026-11-22 23:37:14 | INFO | Servicio registrado: Computador portátil (65898BE5)
+2026-11-22 23:37:14 | INFO | Servicio registrado: Asesoría de software (960A2F7F)
+2026-11-22 23:37:14 | INFO | Reserva creada: 0B4B34D5
+2026-11-22 23:37:14 | INFO | Reserva 0B4B34D5 confirmada. Total: 119000.0
+2026-11-22 23:37:14 | INFO | Reserva 0B4B34D5 procesada correctamente.
+2026-11-22 23:37:14 | INFO | Reserva creada: 8A91A04F
+2026-11-22 23:37:14 | INFO | Reserva 8A91A04F confirmada. Total: 77112.0
+2026-11-22 23:37:14 | INFO | Servicio registrado: Consultoría temporal (731EE436)
+2026-11-22 23:37:14 | INFO | Reserva creada: 581794BD
+2026-11-22 23:37:14 | ERROR | Fallo en operación 12: Intentar confirmar una reserva de un servicio no disponible
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 145, in <lambda>
+    lambda: _crear_y_confirmar(
+            ~~~~~~~~~~~~~~~~~~^
+        sistema, cliente_1.id, servicio_no_disponible.id, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 186, in _crear_y_confirmar
+    total = reserva.confirmar(descuento=descuento)
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 44, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio '{self.servicio.nombre}' no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio 'Consultoría temporal' no está disponible.
+2026-11-22 23:37:14 | ERROR | Fallo en operación 13: Intentar reservar una sala para más personas de las permitidas
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\main.py", line 155, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        cliente_1.id, sala.id, 1, personas=30
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\sistema.py", line 62, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion, **parametros)
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 30, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\reservas.py", line 37, in validar
+    self.servicio.validar_parametros(self.duracion, **self.parametros)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\SoftwareFJ\SoftwareFJ\servicios.py", line 103, in validar_parametros
+    raise ValidacionError(
+        f"La sala admite máximo {self.capacidad} personas; se solicitaron {personas}."
+    )
+excepciones.ValidacionError: La sala admite máximo 12 personas; se solicitaron 30.
+2026-11-22 23:37:14 | INFO | Reserva 8A91A04F cancelada.
+2026-11-22 23:37:14 | INFO | Finalizó la demostración de operaciones de Software FJ.
+2026-11-23 15:51:51 | INFO | Cliente registrado: 10987654 - Laura Gómez
+2026-11-23 15:51:51 | ERROR | Fallo en operación 2: Intentar registrar un cliente con correo inválido
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 51, in <lambda>
+    Cliente("Carlos Pérez", "12345678", "correo-invalido", "3109876543")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\clientes.py", line 19, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\clientes.py", line 51, in validar
+    raise ValidacionError("El correo electrónico no tiene un formato válido.")
+excepciones.ValidacionError: El correo electrónico no tiene un formato válido.
+2026-11-23 15:51:51 | INFO | Cliente registrado: 87654321 - Andrés Ruiz
+2026-11-23 15:51:51 | INFO | Servicio registrado: Sala de reuniones (BC3C0037)
+2026-11-23 15:51:51 | ERROR | Fallo en operación 5: Intentar crear un servicio con precio negativo
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 78, in <lambda>
+    AlquilerEquipo("Proyector", -20000, stock=3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 119, in __init__
+    super().__init__(nombre, precio_base, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 20, in __init__
+    Servicio.validar(self)
+    ~~~~~~~~~~~~~~~~^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 31, in validar
+    raise ValidacionError("El precio base debe ser mayor que cero.")
+excepciones.ValidacionError: El precio base debe ser mayor que cero.
+2026-11-23 15:51:51 | INFO | Servicio registrado: Computador portátil (FF63ADE5)
+2026-11-23 15:51:51 | INFO | Servicio registrado: Asesoría de software (F3028662)
+2026-11-23 15:51:51 | INFO | Reserva creada: A577C917
+2026-11-23 15:51:51 | INFO | Reserva A577C917 confirmada. Total: 119000.0
+2026-11-23 15:51:51 | INFO | Reserva A577C917 procesada correctamente.
+2026-11-23 15:51:51 | INFO | Reserva creada: 8FC7625E
+2026-11-23 15:51:51 | INFO | Reserva 8FC7625E confirmada. Total: 77112.0
+2026-11-23 15:51:51 | INFO | Servicio registrado: Consultoría temporal (E8950EAC)
+2026-11-23 15:51:51 | INFO | Reserva creada: 4AF71093
+2026-11-23 15:51:51 | ERROR | Fallo en operación 12: Intentar confirmar una reserva de un servicio no disponible
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 145, in <lambda>
+    lambda: _crear_y_confirmar(
+            ~~~~~~~~~~~~~~~~~~^
+        sistema, cliente_1.id, servicio_no_disponible.id, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 186, in _crear_y_confirmar
+    total = reserva.confirmar(descuento=descuento)
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\reservas.py", line 44, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio '{self.servicio.nombre}' no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio 'Consultoría temporal' no está disponible.
+2026-11-23 15:51:51 | ERROR | Fallo en operación 13: Intentar reservar una sala para más personas de las permitidas
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 155, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        cliente_1.id, sala.id, 1, personas=30
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\sistema.py", line 62, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion, **parametros)
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\reservas.py", line 30, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\reservas.py", line 37, in validar
+    self.servicio.validar_parametros(self.duracion, **self.parametros)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 103, in validar_parametros
+    raise ValidacionError(
+        f"La sala admite máximo {self.capacidad} personas; se solicitaron {personas}."
+    )
+excepciones.ValidacionError: La sala admite máximo 12 personas; se solicitaron 30.
+2026-11-23 15:51:51 | INFO | Reserva 8FC7625E cancelada.
+2026-11-23 15:51:51 | INFO | Finalizó la demostración de operaciones de Software FJ.
+2026-11-23 15:54:40 | INFO | Cliente registrado: 10987654 - Sofia Gómez
+2026-11-23 15:54:40 | ERROR | Fallo en operación 2: Intentar registrar un cliente con correo inválido
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 51, in <lambda>
+    Cliente("Camilo Pérez", "12345678", "correo-invalido", "3109876543")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\clientes.py", line 19, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\clientes.py", line 51, in validar
+    raise ValidacionError("El correo electrónico no tiene un formato válido.")
+excepciones.ValidacionError: El correo electrónico no tiene un formato válido.
+2026-11-23 15:54:40 | INFO | Cliente registrado: 87654321 - Martin Ruiz
+2026-11-23 15:54:40 | INFO | Servicio registrado: Sala de reuniones (545EA718)
+2026-11-23 15:54:40 | ERROR | Fallo en operación 5: Intentar crear un servicio con precio negativo
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 78, in <lambda>
+    AlquilerEquipo("Proyector", -20000, stock=3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 119, in __init__
+    super().__init__(nombre, precio_base, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 20, in __init__
+    Servicio.validar(self)
+    ~~~~~~~~~~~~~~~~^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 31, in validar
+    raise ValidacionError("El precio base debe ser mayor que cero.")
+excepciones.ValidacionError: El precio base debe ser mayor que cero.
+2026-11-23 15:54:40 | INFO | Servicio registrado: Computador portátil (467FEAB8)
+2026-11-23 15:54:40 | INFO | Servicio registrado: Asesoría de software (E9D30492)
+2026-11-23 15:54:40 | INFO | Reserva creada: 7382141F
+2026-11-23 15:54:40 | INFO | Reserva 7382141F confirmada. Total: 119000.0
+2026-11-23 15:54:40 | INFO | Reserva 7382141F procesada correctamente.
+2026-11-23 15:54:40 | INFO | Reserva creada: B22E9B06
+2026-11-23 15:54:40 | INFO | Reserva B22E9B06 confirmada. Total: 77112.0
+2026-11-23 15:54:40 | INFO | Servicio registrado: Consultoría temporal (1CC56D3F)
+2026-11-23 15:54:40 | INFO | Reserva creada: CCFC018A
+2026-11-23 15:54:40 | ERROR | Fallo en operación 12: Intentar confirmar una reserva de un servicio no disponible
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 145, in <lambda>
+    lambda: _crear_y_confirmar(
+            ~~~~~~~~~~~~~~~~~~^
+        sistema, cliente_1.id, servicio_no_disponible.id, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 186, in _crear_y_confirmar
+    total = reserva.confirmar(descuento=descuento)
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\reservas.py", line 44, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio '{self.servicio.nombre}' no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio 'Consultoría temporal' no está disponible.
+2026-11-23 15:54:40 | ERROR | Fallo en operación 13: Intentar reservar una sala para más personas de las permitidas
+Traceback (most recent call last):
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 14, in ejecutar_operacion
+    resultado = funcion()
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\main.py", line 155, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        cliente_1.id, sala.id, 1, personas=30
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\sistema.py", line 62, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion, **parametros)
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\reservas.py", line 30, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\reservas.py", line 37, in validar
+    self.servicio.validar_parametros(self.duracion, **self.parametros)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Juan Garay\Desktop\Programacion\Gestion_de_clientes\servicios.py", line 103, in validar_parametros
+    raise ValidacionError(
+        f"La sala admite máximo {self.capacidad} personas; se solicitaron {personas}."
+    )
+excepciones.ValidacionError: La sala admite máximo 12 personas; se solicitaron 30.
+2026-11-23 15:54:40 | INFO | Reserva B22E9B06 cancelada.
+2026-11-23 15:54:40 | INFO | Finalizó la demostración de operaciones de Software FJ.
